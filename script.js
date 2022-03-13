@@ -18,3 +18,15 @@ function calculate(event) {
     display.value = "invalid syntax";
   }
 }
+
+display.addEventListener("keydown", (event) => {
+  try {
+    if (event.key === "Escape") return (display.value = "");
+
+    if (event.key === "Enter" && display.value !== "") {
+      return (display.value = eval(display.value));
+    }
+  } catch (error) {
+    display.value = "invalid syntax";
+  }
+});
